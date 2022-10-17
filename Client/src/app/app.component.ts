@@ -1,5 +1,7 @@
 import { Component  ,OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from './Appmodel/user';
+import { AccountService } from './Appservices/account.service';
 
 
 @Component({
@@ -9,34 +11,28 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   
-  title = 'client';
+  title = 'The Chat App';
   users :any;
   
   
-  constructor (private http:HttpClient)
-  {
-    
+  constructor (public accountService:AccountService){
+
   }
+  
   ngOnInit() {
-    this.http.get('https://localhost:7078/api/users').subscribe({
-      next: response => this.users = response,
-      error: error => console.log(error)
-    })
-    // this.userService.getUser().subscribe(result=>{ this.userList =result});
+   this.setCurrentUser();
+    }
+
+  setCurrentUser(){
+    const user:User =JSON.parse(localStorage.getItem('user')||'{}');
+    this.accountService.setCurrentUser(user);
   }
-  
-  
-
-
-  // getUsers(){
-  //   //  this.http.get('https://localhost:7112/api/users').subscribe(data=>{
-  //   //   console.log(data)});
-  //   this.http.get('https://localhost:7112/api/users').subscribe(response =>
     
-  //   { this.users= response;} ,error => 
-   
-  //   {console.log(error);});
-  // }
+  // getUsers(){
+  //   this.http.get('https://localhost:7078/api/users').subscribe({
+  //     next: response => this.users = response,
+  //     error: error => console.log(error)
+  // })}
+    
   
- 
- }
+}

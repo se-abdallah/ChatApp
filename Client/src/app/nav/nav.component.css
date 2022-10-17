@@ -1,0 +1,10 @@
+.mynavbar{
+text-decoration: none;
+margin-left: 5px;
+display:flex;
+justify-content: left;
+}
+.dropdown-toggle, .dropdown-item{
+ cursor:pointer;
+ 
+}
