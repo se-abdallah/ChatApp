@@ -5,11 +5,20 @@
  </div>
  <br>
  <div class="form-group">
-  <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="password">
- </div>
+  <!-- <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="password"> -->
+  <input [type]="changetype?'password':'text'" class="form-control" name="password" [(ngModel)]="model.password" placeholder="password">
+  <span class="input-group-text eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye-slash':'fa fa-eye'"></i></span>
+  </div>
  <div class="d-grid gap-2 row-6 mx-auto text-center">
   <br>
   <button class="btn btn-success" type="submit">Register</button>
   <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>
  </div>
 </form>
+
+
+<!-- <div class="mb-3">
+ <label for="exampleInputPassword1" class="form-label">Password</label>
+ <input [type]=" showPassword ? 'text' : 'password' " class="form-control"  [(ngModel)]="model.password">
+</div>
+<button class="btn btn-primary" (click)='showHidePassword()'> {{ showPassword ? 'Hide' : 'Show' }} Password</button> -->

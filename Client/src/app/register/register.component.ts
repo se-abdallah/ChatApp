@@ -1,31 +1,66 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AccountService } from '../Appservices/account.service';
+import { ToastrService } from 'ngx-toastr';
+import { AccountService } from '../appServices/account.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit { 
+export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
-  model:any ={};
+  model: any = {};
+  visible: boolean = true;
+  changetype: boolean = true;
+  // showPassword: boolean = false;
+  // faHeart = faHeart;
+  // faComment = faComment;
 
-  constructor(private accountServic:AccountService) { 
+  constructor(private accountServic: AccountService, private toastr: ToastrService) {
 
   }
 
   ngOnInit(): void {
   }
-
-  register(){
-   this.accountServic.register(this.model).subscribe(
-    response => { console.log(response),
-    this.cancel();
-    }),
-    error => console.log(error);
+  // next:respone => this.router.navigateByUrl('/mambers'),
+  // error: error => {console.log(error),
+  // this.toastr.show(error.error)
+  register() {
+    this.accountServic.register(this.model).subscribe({
+      next: response => console.log(response),
+      error: error => {
+        console.log(error),
+          this.toastr.error(error.error);
+        this.cancel();
+      }
+    });
   }
 
-  cancel(){
+  cancel() {
     this.cancelRegister.emit(false);
   }
+  viewpass() {
+    this.visible = !this.visible;
+    this.changetype = !this.changetype;
+  }
+
+
 }
+  // showHidePassword() {
+  //   this.showPassword = !this.showPassword;
+  // }
+
+// next:respone => this.router.navigateByUrl('/mambers'),
+// error: error => {console.log(error),
+// this.toastr.show(error.error)
+
+
+// this.accountServic.register(this.model).subscribe(
+//   response => {
+//     console.log(response),
+//       this.cancel();
+//   }),
+//   error => {
+//     console.log(error),
+//     this.toastr.error(error.error)
+//   }

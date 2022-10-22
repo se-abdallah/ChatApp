@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from '../Appmodel/user';
-import { AccountService } from '../Appservices/account.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AccountService } from '../appServices/account.service';
+import { User } from '../appModel/user';
 
 @Component({
   selector: 'app-nav',
@@ -9,25 +10,52 @@ import { AccountService } from '../Appservices/account.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  model: any = {}
- 
-  
+  model: any = {};
+  visible: boolean = true;
+  changetype: boolean = true;
 
-  constructor(public accountService: AccountService) { }
+
+
+
+  constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) {
+
+  }
 
   ngOnInit(): void {
-    
+
   }
   login() {
     this.accountService.login(this.model).subscribe({
-      next: respone => console.log(respone),
-      error: error => console.log(error) 
-    })
+      next: respone => this.router.navigateByUrl('/mambers'),
+      error: error => {
+        console.log(error),
+        this.toastr.error(error.error)
+      }
+    });
+
+
+
+    // respone => {
+    //   this.router.navigateByUrl('/mambers')
+    //   error => {
+    //     console.log(error);
+    //     this.toastr.show(error.error);
+    //   }})
   }
+  // test(){
+  //   this.toastr.success("iam fucking here");
+  // }
 
   logout() {
     this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
+
+  viewpass() {
+    this.visible = !this.visible;
+    this.changetype = !this.changetype;
+  }
+
 }
 
 //   getCurrentUser(){

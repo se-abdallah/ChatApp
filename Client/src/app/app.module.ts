@@ -10,13 +10,27 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MembersListComponent } from './members/members-list/members-list.component';
+import { MembersDetailComponent } from './members/members-detail/members-detail.component';
+import { ListsComponent } from './lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
+import {ToastrModule} from 'ngx-toastr';
+//import { ToastrModule } from 'ngx-toastr/public_api';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    MembersListComponent,
+    MembersDetailComponent,
+    ListsComponent,
+    MessagesComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -24,7 +38,15 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule.forRoot()
+    FontAwesomeModule,
+    BsDropdownModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-center',
+    
+      
+
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
