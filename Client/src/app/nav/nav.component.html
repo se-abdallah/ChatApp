@@ -1,9 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+<nav class="navbar navbar-expand fixed-top bg-primary">
   <div class="container">
     <div class="nav-header">
       <a class="navbar-brand" href="#">Chating App</a>
     </div>
-    <a class="navbar-brand" routerLink="/" routerLinkActive="active">Home</a>
+   <div class="nav-item">
+    <a class="navbar-link mylink" routerLink="/" routerLinkActive="active">Home</a>
+    </div>
+   
     <ul class="navbar-nav me-auto mb-2 mb-md-0">
       <ng-container *ngIf="accountService.currentUser$ | async">
         <li class="nav-item">
@@ -15,10 +18,14 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
         </li>
+      
       </ng-container>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/errors" routerLinkActive="active">Errors</a>
+      </li>
     </ul>
     <div class="dropdown mynavbar" *ngIf="(accountService.currentUser$ | async) as User" dropdown>
-      <a class="dropdown-toggle text-light mynavbar" dropdownToggle><strong>{{User.username | titlecase}}</strong></a>
+      <a class="dropdown-toggle text-light mynavbar" dropdownToggle><strong>Welcome {{User.username | titlecase}}</strong></a>
       <div class="dropdown-menu mt-3" *bsDropdownMenu="">
         <a class="dropdown-item mynavbar">Edit Profile</a>
         <div class="dropdown-divider"></div>

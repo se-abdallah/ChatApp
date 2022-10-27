@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +15,13 @@ import { MembersListComponent } from './members/members-list/members-list.compon
 import { MembersDetailComponent } from './members/members-detail/members-detail.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
-import {ToastrModule} from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
+import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
+import { ErrorInterceptor } from './appInterceptors/error.interceptor';
+import { CommonModule } from '@angular/common';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
+
 //import { ToastrModule } from 'ngx-toastr/public_api';
 
 
@@ -30,25 +36,37 @@ import {ToastrModule} from 'ngx-toastr';
     MembersDetailComponent,
     ListsComponent,
     MessagesComponent,
+    TestErrorsComponent,
+    NotFoundComponent,
+    ServerErrorComponent,
+    
 
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     FontAwesomeModule,
     BsDropdownModule.forRoot(),
-    ToastrModule.forRoot({
-      timeOut: 3000,
-      positionClass: 'toast-bottom-center',
-    
-      
-
-    })
+    ToastrModule.forRoot(
+      {
+        timeOut: 3000,
+        positionClass: 'toast-bottom-center',
+      })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    //{provide:}
+  ],
+  // exports : [
+  //   BsDropdownModule,
+  //   CommonModule,
+  //   BrowserModule,
+  //   ToastrModule
+  // ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

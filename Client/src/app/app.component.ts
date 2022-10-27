@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './appModel/user';
 import { AccountService } from './appServices/account.service';
+import { CommonModule } from '@angular/common';
 
 
 
