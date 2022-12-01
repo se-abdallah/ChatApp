@@ -1,36 +1,42 @@
 using Microsoft.AspNetCore.Mvc;
-using API.Data;
-using API.Entity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using API.Interfaces;
+using API.DTOs;
+using AutoMapper;
 
 namespace API.Controllers
 {
+ [Authorize]
  //[EnableCors("MyCors")]
  //[EnableCors("https://localhost:4200")]
  // [ApiController]
  // [Route("api/[controller]")]
  public class UsersController : BaseApiController
  {
-  private readonly DataContext _context;
 
-  public UsersController(DataContext context)
+  private readonly IUserRepository _userRepository;
+  private readonly IMapper _mapper;
+
+  public UsersController(IUserRepository userRepository, IMapper mapper)
   {
-   _context = context;
+   _mapper = mapper;
+   _userRepository = userRepository;
+
   }
   //api/users
   [HttpGet]
-  [AllowAnonymous]
-  public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+  // [AllowAnonymous]
+  public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
   {
-   return await _context.Users.ToListAsync();
+   var users = await _userRepository.GetMembersAsync();
+   return Ok(users);
   }
   //api/users/1 or /2 etc
-  [Authorize]
-  [HttpGet("{id}")]
-  public async Task<ActionResult<AppUser>> GetUser(int id)
+  // [Authorize]
+  [HttpGet("{username}")]
+  public async Task<ActionResult<MemberDto>> GetUser(string username)
   {
-   return await _context.Users.FindAsync(id);
+   return await _userRepository.GetMemberAsync(username);
   }
  }
 }
