@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,12 +11,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.DBMigrations.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221103213736_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
 
             modelBuilder.Entity("API.Entity.AppUser", b =>
                 {
@@ -32,11 +34,7 @@ namespace API.DBMigrations.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
-<<<<<<< HEAD
-                    b.Property<DateOnly>("DateOfBirth")
-=======
                     b.Property<DateTime>("DateOfBirth")
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Gender")
@@ -48,12 +46,6 @@ namespace API.DBMigrations.Migrations
                     b.Property<string>("Introduction")
                         .HasColumnType("TEXT");
 
-<<<<<<< HEAD
-                    b.Property<string>("JobTitle")
-                        .HasColumnType("TEXT");
-
-=======
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
                     b.Property<string>("KnownAs")
                         .HasColumnType("TEXT");
 

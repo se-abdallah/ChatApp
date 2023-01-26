@@ -9,8 +9,11 @@ import { MessagesComponent } from './messages/messages.component';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+<<<<<<< HEAD
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PreventUnsavedChangesGuard } from './appGuards/prevent-unsaved-changes.guard';
+=======
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -19,10 +22,15 @@ const routes: Routes = [
     runGuardsAndResolvers:'always',
     canActivate:[AuthGuard],
     children:[
+<<<<<<< HEAD
       // {path:'members', component:MembersListComponent,canActivate:[AuthGuard]},
       {path:'members', component:MembersListComponent},
       {path:'members/:username', component:MembersDetailComponent},
       {path:'member/:edit', component:MemberEditComponent, canDeactivate :[PreventUnsavedChangesGuard]},
+=======
+      {path:'members', component:MembersListComponent,canActivate:[AuthGuard]},
+      {path:'members/:id', component:MembersDetailComponent},
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
       {path:'lists', component:ListsComponent},
       {path:'messages', component:MessagesComponent},
     ]

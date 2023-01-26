@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { Member } from 'src/app/appModel/member';
 import { MembersService } from 'src/app/appServices/members.service';
+=======
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 
 @Component({
   selector: 'app-members-detail',
@@ -10,6 +13,7 @@ import { MembersService } from 'src/app/appServices/members.service';
   styleUrls: ['./members-detail.component.css']
 })
 export class MembersDetailComponent implements OnInit {
+<<<<<<< HEAD
   member: Member | undefined;
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
@@ -54,4 +58,12 @@ export class MembersDetailComponent implements OnInit {
       return imageUrls;
     }
   }
+=======
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 }

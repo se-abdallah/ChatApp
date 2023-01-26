@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+=======
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../appServices/account.service';
 
@@ -11,6 +15,7 @@ import { AccountService } from '../appServices/account.service';
 })
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
+<<<<<<< HEAD
   visible: boolean = true;
   changetype: boolean = true;
   // checked: boolean = false;
@@ -19,10 +24,21 @@ export class RegisterComponent implements OnInit {
   validationErrors: string[] | undefined;
 
   constructor(private accountServic: AccountService, private toastr: ToastrService, private fb: FormBuilder, private router: Router) {
+=======
+  model: any = {};
+  visible: boolean = true;
+  changetype: boolean = true;
+  // showPassword: boolean = false;
+  // faHeart = faHeart;
+  // faComment = faComment;
+
+  constructor(private accountServic: AccountService, private toastr: ToastrService) {
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 
   }
 
   ngOnInit(): void {
+<<<<<<< HEAD
     this.initializeForm();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
   }
@@ -61,11 +77,27 @@ export class RegisterComponent implements OnInit {
     return (control: AbstractControl) => {
       return control.value === control.parent?.get(matchTo)?.value ? null : { notMatching: true }
     }
+=======
+  }
+  // next:respone => this.router.navigateByUrl('/mambers'),
+  // error: error => {console.log(error),
+  // this.toastr.show(error.error)
+  register() {
+    this.accountServic.register(this.model).subscribe({
+      next: response => console.log(response),
+      error: error => {
+        console.log(error),
+          this.toastr.error(error.error);
+        this.cancel();
+      }
+    });
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
   }
 
   cancel() {
     this.cancelRegister.emit(false);
   }
+<<<<<<< HEAD
   private getDateOnly(dob: string | undefined) {
     if (!dob) return;
     let theDob = new Date(dob);
@@ -87,3 +119,30 @@ export class RegisterComponent implements OnInit {
 //   this.cancel();
 // }
 // });
+=======
+  viewpass() {
+    this.visible = !this.visible;
+    this.changetype = !this.changetype;
+  }
+
+
+}
+  // showHidePassword() {
+  //   this.showPassword = !this.showPassword;
+  // }
+
+// next:respone => this.router.navigateByUrl('/mambers'),
+// error: error => {console.log(error),
+// this.toastr.show(error.error)
+
+
+// this.accountServic.register(this.model).subscribe(
+//   response => {
+//     console.log(response),
+//       this.cancel();
+//   }),
+//   error => {
+//     console.log(error),
+//     this.toastr.error(error.error)
+//   }
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6

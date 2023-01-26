@@ -1,6 +1,9 @@
 using API.DTOs;
 using API.Entity;
+<<<<<<< HEAD
 using API.Helpers;
+=======
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 
 namespace API.Interfaces
 {
@@ -17,7 +20,11 @@ namespace API.Interfaces
   Task<AppUser> GetUserByIdAsync(int id);
 
   Task<AppUser> GetUserByUsernameAsync(string username);
+<<<<<<< HEAD
   Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams); 
+=======
+  Task<IEnumerable<MemberDto>> GetMembersAsync();
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
   Task<MemberDto> GetMemberAsync(string username);
  }
 }

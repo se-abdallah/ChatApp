@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "./node_modules/ngx-spinner/animations/line-scale-party.css",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -31,6 +32,16 @@
               "./node_modules/font-awesome/css/font-awesome.min.css",
               "./node_modules/font-awesome/css/font-awesome.css",
               "./node_modules/ngx-toastr/toastr.css",
+=======
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/bootswatch/dist/minty/bootstrap.css",
+              "./node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/font-awesome/css/font-awesome.css",
+              "./node_modules/ngx-toastr/toastr.css",
+              
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
               "src/styles.css"
             ],
             "scripts": []
@@ -103,7 +114,10 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "./node_modules/ngx-spinner/animations/line-scale-party.css",
+=======
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",

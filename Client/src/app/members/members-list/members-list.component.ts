@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Member } from 'src/app/appModel/member';
 import { Pagination } from 'src/app/appModel/pagination';
 import { MembersService } from 'src/app/appServices/members.service';
+=======
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 
 @Component({
   selector: 'app-members-list',
@@ -9,6 +12,7 @@ import { MembersService } from 'src/app/appServices/members.service';
   styleUrls: ['./members-list.component.css']
 })
 export class MembersListComponent implements OnInit {
+<<<<<<< HEAD
   // members$: Observable<Member[]> | undefined
   members!: Member[];
   pagination!: Pagination;
@@ -40,4 +44,12 @@ export class MembersListComponent implements OnInit {
     this.pageNumber = event.page;
     this.loadMembers();
   }
+=======
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+>>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 }
