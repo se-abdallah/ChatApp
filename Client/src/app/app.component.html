@@ -1,8 +1,17 @@
-<h1>ChatApp</h1>
-<h2 style="color:red">{{title}}</h2>
-<ul>
-  <li *ngFor='let user of users'>{{user.id}} - {{user.userName}}</li>
-</ul>
+<ngx-spinner type="line-scale-party">
+  <h3>Loading...</h3>
+</ngx-spinner>
+<app-nav></app-nav>
+<!-- <app-members-detail></app-members-detail> -->
+<div style="margin-top:100px">
+  <router-outlet></router-outlet>
+</div>
+<!-- <ul>
+    <li *ngFor='let user of users'>{{user.id}} - {{user.userName}}</li>
+  </ul> -->
+
+<!-- <h2 style="color:red">{{title}}</h2>
+class="container" *ngIf="accountService.currentUser$ | async"
 <ol>
 <li>Sunday</li>
 <li>Monday</li>
@@ -11,4 +20,4 @@
 <li>Thursday</li>
 <li>Friday</li>
 <li>Saturday</li>
-</ol>
+</ol> -->

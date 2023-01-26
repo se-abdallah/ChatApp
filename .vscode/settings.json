@@ -1,0 +1,5 @@
+{
+ "prettier.useTabs": false,
+ "angular.log": "verbose",
+ "typescript.tsdk": "node_modules\\typescript\\lib"
+}

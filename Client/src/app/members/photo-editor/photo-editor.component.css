@@ -1,0 +1,37 @@
+.myicon{
+ font-size: 50px;
+}
+
+.cancelbtn{
+ color: rgb(180, 105, 44);
+}
+.nv-file-over {
+ border: dotted 3px red;
+}
+
+input[type=file] {
+ color: transparent
+}
+btn-group{
+ position: fixed;
+ border:solid black 1px;
+ border-radius:20px;
+}
+.main:hover{
+ color: rgb(8, 48, 133);
+}
+.delete:hover{
+ color: rgb(134, 7, 7);
+}
+.myposition{
+ margin-left: 5px;
+ text-align: justify;
+}
+.btn-group .button:only-child {
+ border-radius: 10px;
+ /* margin-left: 0; */
+}
+.btn-group .button:last-child {
+ border-radius: 10px;
+ /* margin-left: -1px; */
+}

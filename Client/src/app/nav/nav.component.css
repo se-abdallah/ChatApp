@@ -1,0 +1,99 @@
+.mynavbar{
+text-decoration: none;
+/* display:flex; */
+/* justify-content: left; */
+}
+.navbar {
+border-bottom: solid black;
+border-top: solid black;
+}
+.dropdown-toggle, .dropdown-item{
+ cursor:pointer;
+ 
+}
+
+.eyeicon {
+ /* margin-right: 10rem; */
+ /* position: fixed; */
+ cursor: pointer;
+ background-color: transparent;
+ /* display: flex; */
+
+}
+.myeyyye{
+  margin-right: 2rem;
+  margin-top: 4px;
+}
+
+.toastr{
+ opacity:1 
+}
+.mylink{
+color:white;
+text-decoration: none;
+}
+
+.container {
+ max-height:70px;
+ margin-left:0px;
+
+ /* IF YOU WANT TO PREVENT THE ITEMS WRAPPING ONTO A 
+    2ND LINE WHEN THEY NO LONGER FIT IN THE WINDOW:
+ min-width:500px;
+ */
+}
+.dropdown-toggle , .dropdown-item , img{
+  cursor :pointer;
+}
+
+img{
+  max-height: 40px;
+  max-width: 40px;
+  border: 2px soild white;
+  border-radius: 50% ;
+  /* object-fit:fill; */
+}
+/* img {
+  max-height: 50px;
+  border: 2px solid white;
+  display: inline;
+} */
+.login-form{
+  display: flex;
+  /* flex-direction: column; */
+  /* padding: 3px; */
+}
+
+
+/* new */
+/* 
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; 
+}  */
+  /* Used in this example to enable scrolling */
+ 

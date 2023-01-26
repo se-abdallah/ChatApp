@@ -1,0 +1,28 @@
+<div class="content">
+  <div class="card col-mb-4" *ngIf="member">
+    <div class="card-img-wrapper">
+      <img src="{{member.photoUrl ||  './assets/images/user.png'}}" alt="{{member.knownAs}}" class="card-img-top">
+      <ul class="list-inline member-icons animate text-center">
+        <li class="list-inline-item">
+          <button mat-icon-button color="primary"
+            routerLink="/members/{{member.userName}}"><mat-icon>recent_actors</mat-icon> </button>
+        </li>
+        <!-- <button (click)="addLike(member)" class="btn btn-primary"><i class="fa fa-heart"></i></button> -->
+        <li class="list-inline-item">
+          <button mat-icon-button color="primary"><mat-icon>favorite_border</mat-icon> </button>
+        </li>
+        <li class="list-inline-item">
+          <button mat-icon-button color="primary" routerLink="/members/{{member.userName}}"
+            [queryParams]="{tab: 'Messages'}"><mat-icon>chat_bubble_outline</mat-icon> </button>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body p-1">
+      <div id="parent">
+        <p class="mytxt1 child"><mat-icon class="myicon">person</mat-icon>{{member.userName|titlecase}}</p>
+        <p class="mytxt2 child"><mat-icon class="myicon">room</mat-icon>{{member.city|titlecase}}</p>
+      </div>
+      <!-- <span [class.is-online]="(presenceService.onlineUsers$ | async)?.includes(member.userName)"> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+  <h2 class="text-center text-primary">Sign up</h2>
+  <hr>
+  <div class="mb-3">
+    <label style="margin-right:10px">I'm a :</label>
+    <label class="form-check-label">
+      <input type="radio" class="form-check-label ml-5" value="male" formControlName="gender">Male
+    </label>
+    <label class="form-check-label">
+      <input type="radio" class="form-check-label ms-3" value="female" formControlName="gender">Female
+    </label>
+  </div>
+
+  <app-text-input [formControl]="$any(registerForm.controls['username'])" [label]="'Username'"></app-text-input>
+  <app-text-input [formControl]="$any(registerForm.controls['knownAs'])" [label]="'known As'"></app-text-input>
+  <app-text-input [formControl]="$any(registerForm.controls['jobTitle'])" [label]="'Job Title'"></app-text-input>
+  <app-date-picker [formControl]="$any(registerForm.controls['dateOfBirth'])" [label]="'Date Of Birth'" [maxDate]="maxDate"></app-date-picker>
+  <app-text-input [formControl]="$any(registerForm.controls['city'])" [label]="'city'"></app-text-input>
+  <app-text-input [formControl]="$any(registerForm.controls['country'])" [label]="'country'"></app-text-input>
+  <app-text-input [formControl]="$any(registerForm.controls['password'])" [label]="'password'" [type]="changetype?'password':'text'"></app-text-input>
+  <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])" [label]="'ConfirmPassword'" [type]="changetype?'password':'text'"></app-text-input>
+  <div class="row" *ngIf="validationErrors">
+    <ul class="text-danger">
+      <li *ngIf=" let error of validationErrors">
+        {{error}}
+      </li>
+    </ul>
+  </div>
+  <mat-checkbox class="mt-1 my-2" color="primary" (click)="viewPass()">Show Password</mat-checkbox>
+  <div class="text-center">
+    <br>
+    <button class="btn btn-sm btn-success registerbutton me-4" type="submit">Register</button>
+    <button class="btn btn-sm btn-danger registerbutton" type="button" (click)="cancel()">Cancel</button>
+  </div>
+</form>
+<p>Form Value: {{registerForm.value | json}}</p>
+<p>Form Status: {{registerForm.status | json}}</p>
+
+
+<!-- !test -->
+<!-- <span class="input-group-text eyeicon mt-3 ms-2" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye-slash':'fa fa-eye'"></i></span> -->
+<!-- <input [type]="changetype?'password':'text'" class="form-control" name="password" formControlName="confirmPassword" placeholder="confirm Password" required> -->
+<!-- !test -->
+<!-- <form [formGroup]="signin">
+  <mat-form-field>
+   <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+   <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint>
+  </mat-form-field>
+ </form> -->
+<!-- !tests -->

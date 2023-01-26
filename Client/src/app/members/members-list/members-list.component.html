@@ -1,0 +1,24 @@
+<div class="row">
+ <!-- <div class="col-2" *ngFor="let member of members$ | async"> -->
+ <div class="col-2" *ngFor="let member of members">
+  <app-member-card [member]="member"></app-member-card>
+ </div>
+</div>
+
+<nav pagination>
+ <div class="pagination" *ngIf="pagination">
+  <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+   [maxSize]="10" [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+   nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+  </pagination>
+ </div>
+</nav>
+
+
+<!-- <div class="paginationposition" *ngIf="pagination"> -->
+<!-- <div class="paginationposition d-flex justify-content-center" *ngIf="pagination">
+  <pagination [boundaryLinks]="true" [totalItems]="77" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;"
+   lastText="&raquo;">
+  </pagination>
+ </div> -->

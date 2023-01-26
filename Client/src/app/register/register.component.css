@@ -1,0 +1,42 @@
+/* .form-group{
+ position: relative;
+ width:500px ;
+} 
+
+.form-group input{
+border: 1px solid rgb(12, 12, 12);
+padding: 0 15px;
+border-radius: 5px;
+font-size:15px;
+width: 100%;
+} */
+
+.eyeicon {
+ position: absolute;
+ cursor: pointer;
+ background-color: transparent;
+}
+
+.myform{
+ position:relative;
+ width:400px;
+ border: 2px solid black;
+ padding:2px;
+ margin: 1px;
+
+}
+.registerbutton{
+ border-radius: 15px;
+ border: none;
+  color: white;
+  height: 40px;
+  width:150px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px;
+  /* column-gap: 4px; */
+  cursor: pointer;
+}
+

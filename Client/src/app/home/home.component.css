@@ -1,0 +1,19 @@
+.registerbutton{
+ background-color: cadetblue;
+ border-radius: 15px;
+ border: none;
+ color: rgb(228, 238, 238);
+ height: 40px;
+ width:150px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+ margin: 4px;
+ /* column-gap: 4px; */
+ cursor: pointer;
+}
+
+.mytxt{
+ color:rgb(110, 184, 187);
+}
