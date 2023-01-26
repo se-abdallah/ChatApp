@@ -3,12 +3,9 @@ using Microsoft.AspNetCore.Authorization;
 using API.Interfaces;
 using API.DTOs;
 using AutoMapper;
-<<<<<<< HEAD
 using API.Extensions;
 using API.Entity;
 using API.Helpers;
-=======
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 
 namespace API.Controllers
 {
@@ -22,17 +19,11 @@ namespace API.Controllers
 
   private readonly IUserRepository _userRepository;
   private readonly IMapper _mapper;
-<<<<<<< HEAD
   public IPhotoService _photoService;
 
   public UsersController(IUserRepository userRepository, IMapper mapper, IPhotoService photoService)
   {
    _photoService = photoService;
-=======
-
-  public UsersController(IUserRepository userRepository, IMapper mapper)
-  {
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
    _mapper = mapper;
    _userRepository = userRepository;
 
@@ -42,7 +33,6 @@ namespace API.Controllers
   //api/users
   [HttpGet]
   // [AllowAnonymous]
-<<<<<<< HEAD
   public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
   {
    var currentUser = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
@@ -55,11 +45,6 @@ namespace API.Controllers
 
    var users = await _userRepository.GetMembersAsync(userParams);
    Response.AddPaginationHeader(new PaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages));
-=======
-  public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
-  {
-   var users = await _userRepository.GetMembersAsync();
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
    return Ok(users);
   }
 
@@ -70,7 +55,6 @@ namespace API.Controllers
   public async Task<ActionResult<MemberDto>> GetUser(string username)
   {
    return await _userRepository.GetMemberAsync(username);
-<<<<<<< HEAD
   }
 
   // !UpdateUser
@@ -158,8 +142,6 @@ namespace API.Controllers
    if (await _userRepository.SaveAllAsync()) return Ok();
 
    return BadRequest("Error Deleting picture");
-=======
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
   }
  }
 }

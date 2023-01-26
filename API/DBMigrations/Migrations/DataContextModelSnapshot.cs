@@ -32,11 +32,7 @@ namespace API.DBMigrations.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
-<<<<<<< HEAD
                     b.Property<DateOnly>("DateOfBirth")
-=======
-                    b.Property<DateTime>("DateOfBirth")
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Gender")
@@ -48,12 +44,9 @@ namespace API.DBMigrations.Migrations
                     b.Property<string>("Introduction")
                         .HasColumnType("TEXT");
 
-<<<<<<< HEAD
                     b.Property<string>("JobTitle")
                         .HasColumnType("TEXT");
 
-=======
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
                     b.Property<string>("KnownAs")
                         .HasColumnType("TEXT");
 

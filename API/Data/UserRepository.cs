@@ -1,9 +1,6 @@
 using API.DTOs;
 using API.Entity;
-<<<<<<< HEAD
 using API.Helpers;
-=======
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 using API.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -27,7 +24,6 @@ namespace API.Data
    return await _context.Users.Where(x => x.UserName == username).ProjectTo<MemberDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync();
   }
 
-<<<<<<< HEAD
   public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
   {
    var query = _context.Users.AsQueryable();
@@ -42,11 +38,6 @@ namespace API.Data
 
 
    return await PagedList<MemberDto>.CreateAsync(query.AsNoTracking().ProjectTo<MemberDto>(_mapper.ConfigurationProvider), userParams.PageNumber, userParams.PageSize);
-=======
-  public async Task<IEnumerable<MemberDto>> GetMembersAsync()
-  {
-   return await _context.Users.ProjectTo<MemberDto>(_mapper.ConfigurationProvider).ToListAsync();
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
   }
 
   public async Task<AppUser> GetUserByIdAsync(int id)
