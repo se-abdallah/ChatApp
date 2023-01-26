@@ -3,7 +3,6 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-<<<<<<< HEAD
 .tab-panel {
  border: 1px solid #ddd;
  padding: 10px;
@@ -53,5 +52,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .nav-tabs {
    --bs-nav-tabs-border-width: 0px;
 }
-=======
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6

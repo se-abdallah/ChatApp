@@ -3,7 +3,6 @@
     <div class="nav-header">
       <a class="navbar-brand" href="#">Chating App</a>
     </div>
-<<<<<<< HEAD
     <div class="nav-item">
       <a class="navbar-link mylink" routerLink="/" routerLinkActive="active">Home</a>
     </div>
@@ -12,16 +11,6 @@
       <ng-container *ngIf="accountService.currentUser$ | async">
         <li class="nav-item">
           <a class="nav-link" routerLink="/members" routerLinkActive="active">Users</a>
-=======
-   <div class="nav-item">
-    <a class="navbar-link mylink" routerLink="/" routerLinkActive="active">Home</a>
-    </div>
-   
-    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-      <ng-container *ngIf="accountService.currentUser$ | async">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/members" routerLinkActive="active">Matches</a>
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
@@ -29,17 +18,11 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
         </li>
-<<<<<<< HEAD
-
-=======
-      
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
       </ng-container>
       <li class="nav-item">
         <a class="nav-link" routerLink="/errors" routerLinkActive="active">Errors</a>
       </li>
     </ul>
-<<<<<<< HEAD
 
 
     <div class="dropdown mynavbar" *ngIf="(accountService.currentUser$ | async) as User" dropdown>
@@ -49,26 +32,15 @@
       </a>
       <div class="dropdown-menu mt-3" *bsDropdownMenu>
         <a class="dropdown-item mynavbar" routerLink="/member/edit">Edit Profile</a>
-=======
-    <div class="dropdown mynavbar" *ngIf="(accountService.currentUser$ | async) as User" dropdown>
-      <a class="dropdown-toggle text-light mynavbar" dropdownToggle><strong>Welcome {{User.username | titlecase}}</strong></a>
-      <div class="dropdown-menu mt-3" *bsDropdownMenu="">
-        <a class="dropdown-item mynavbar">Edit Profile</a>
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="logout()">Logout</a>
       </div>
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
     <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm"
       class="form-inline mt-2 mt-md-0 d-flex" (ngSubmit)="login()" autocomplete="off">
       <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="text" placeholder="Username">
       <input [type]="changetype?'password':'text'" name="password" [(ngModel)]="model.password"
         class="form-control me-2" type="password" placeholder="Password">
-<<<<<<< HEAD
       <div class="me-2 mt-2">
         <mat-icon class="eyeicon" matSuffix (click)="viewPass()"> {{changetype?'visibility_off':'visibility'}}
         </mat-icon>
@@ -80,13 +52,4 @@
     </form>
   </div>
   <!-- </div> -->
-=======
-      <div class="input-group-append">
-        <span class="input-group-text eyeicon" (click)="viewpass()"><i
-            [ngClass]="visible?'fa fa-eye-slash':'fa fa-eye'"></i></span>
-      </div>
-      <button class="btn btn-success" type="submit">login</button>
-    </form>
-  </div>
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 </nav>

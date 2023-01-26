@@ -16,18 +16,6 @@ width: 100%;
  cursor: pointer;
  background-color: transparent;
 }
-<<<<<<< HEAD
-
-=======
-/* .eyicon{
- float:right;
- margin-right: 6px;
- position: relative;
-} */
-/* .fa{
- margin-right: 10px;
-} */
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 .myform{
  position:relative;
  width:400px;
@@ -35,7 +23,6 @@ width: 100%;
  padding:2px;
  margin: 1px;
 
-<<<<<<< HEAD
 }
 .registerbutton{
  border-radius: 15px;
@@ -52,6 +39,3 @@ width: 100%;
   cursor: pointer;
 }
 
-=======
-}
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6

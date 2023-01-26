@@ -1,6 +1,5 @@
 <div class="container mt-5">
   <div *ngIf="!registerMode" style="text-align:center">
-<<<<<<< HEAD
     <h2 class="mytxt">Not A Member !! Be A Member Now </h2>
     <p class="lead mt-4 text-center mytxt">Start Coverstion With Over Million People Around The World</p>
     <p class="mt-5 my-4 pt-10"><strong style="font-size:xx-large; color:rgb(161, 75, 4)">Let's Sign Up</strong></p>
@@ -8,28 +7,13 @@
     <div class="btn-group btn-secondary gap-5 d-md-block mt-5">
       <button (click)="registerToggle()" class="btn btn-primary registerbutton">Register</button>
       <button class="btn btn-primary registerbutton">learn more!</button>
-=======
-    <h2>Find Your Match</h2>
-    <p class="lead">View your matches but sign up First!</p>
-    <div class="btn-group btn-outline-secondary gap-1 d-md-block">
-      <button (click)="registerToggle()" class="btn btn-outline-primary">Register</button>
-      <button class="btn btn-outline-primary">learn more</button>
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
     </div>
   </div>
   <div *ngIf="registerMode" class="container">
     <div class="row justify-content-center">
       <div class="col-4">
-<<<<<<< HEAD
         <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
       </div>
     </div>
   </div>
 </div>
-=======
-       <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
-      </div>
-    </div>
-  </div>
-</div>
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6

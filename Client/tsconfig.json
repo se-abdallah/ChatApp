@@ -8,13 +8,9 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-<<<<<<< HEAD
     "noImplicitReturns": false,
     // "strictPropertyInitialization": false, 
     // "noImplicitReturns": true, the original settings
-=======
-    "noImplicitReturns": true,
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
     "noImplicitAny":false,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -37,9 +33,6 @@
     "strictTemplates": true,
     "strictPropertyInitialization": false,
     "strictNullChecks":false
-<<<<<<< HEAD
     
-=======
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
   }
 }

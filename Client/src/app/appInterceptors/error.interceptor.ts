@@ -3,12 +3,8 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-<<<<<<< HEAD
   HttpInterceptor,
   HttpErrorResponse
-=======
-  HttpInterceptor
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { NavigationExtras, Router } from '@angular/router';
@@ -23,16 +19,11 @@ export class ErrorInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
-<<<<<<< HEAD
       catchError((error:HttpErrorResponse) => {
-=======
-      catchError(error => {
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
         if (error) {
           switch (error.status) {
             case 400:
               if (error.error.errors) {
-<<<<<<< HEAD
                 // const modalStateErrors: any[] = [];
                 const modelStateErrors : any = [];
                 for (const key in error.error.errors) {
@@ -56,28 +47,6 @@ export class ErrorInterceptor implements HttpInterceptor {
               break;
             case 401:
               this.toastr.error('Unauthorised', error.status.toString());
-=======
-                const modalStateErrors: any[] = [];
-                for (const key in error.error.errors) {
-                  if (error.error.errors[key]) {
-                    modalStateErrors.push(error.error.errors[key])
-                  }
-                }
-
-                throw modalStateErrors.flat();
-              }
-              // } else {
-              //   this.toastr.error(error.statusText, error.status);
-              // }
-              else if (typeof (error.error) === 'object') {
-                this.toastr.error(error.statusText, error.status);
-              } else {
-                this.toastr.error(error.error, error.status);
-              }
-              break;
-            case 401:
-              this.toastr.error(error.statusText, error.status);
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
               break;
             case 404:
               this.router.navigateByUrl('/not-found');
@@ -93,14 +62,9 @@ export class ErrorInterceptor implements HttpInterceptor {
           }
         }
         //return throwError(error);
-<<<<<<< HEAD
         // return throwError(() => error);
         // return throwError(() => new Error(error));
         throw error;
-=======
-        return throwError(() => error);
-        // return throwError(() => new Error(error));
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
       })
     )
   }

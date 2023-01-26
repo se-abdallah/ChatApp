@@ -50,17 +50,10 @@ export class TestErrorsComponent implements OnInit {
     this.http.post(this.baseUrl + 'account/register', {}).subscribe({
       next: response => { console.log(response) },
       error: error => {
-<<<<<<< HEAD
         console.log(error);
         this.validationErrors = error;
       }
     })
-=======
-        console.log(error)
-        this.validationErrors = error;
-      }
-    });
->>>>>>> 929b681754124ca02c81088fac73c6ff8f2352f6
   }
   // getErorrvildation(){
   // this.validationErrors.error;
