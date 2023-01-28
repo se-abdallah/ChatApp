@@ -8,7 +8,7 @@ namespace API.Entity
   public byte[] PasswordSalt { get; set; }
   public DateOnly DateOfBirth { get; set; }
   public string KnownAs { get; set; }
-  public DateTime Created { get; set; } 
+  public DateTime Created { get; set; } = DateTime.UtcNow;
   public DateTime LastSeen { get; set; } = DateTime.UtcNow;
   public string Gender { get; set; }
   public string Introduction { get; set; }
