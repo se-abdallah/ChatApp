@@ -33,7 +33,7 @@ namespace API.Controllers
   //api/users
   [HttpGet]
   // [AllowAnonymous]
-  public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
+  public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
   {
    var currentUser = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
    userParams.CurrentUsername = currentUser.UserName;
