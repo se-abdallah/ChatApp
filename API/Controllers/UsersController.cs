@@ -33,11 +33,28 @@ namespace API.Controllers
   //api/users
   [HttpGet]
   // [AllowAnonymous]
+  // public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
+  // {
+  //  var users = await _userRepository.GetMembersAsync(userParams);
+  //  Response.AddPaginationHeader(new PaginationHeader(users.CurrentPage , users.PageSize, users.TotalCount, users.TotalPages));
+   
+  //  return Ok(users);
+  // }
+  // !GetUsers
+  //api/users
+  [HttpGet]
+  // [AllowAnonymous]
   public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
   {
    var currentUser = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
-   userParams.CurrentUsername = currentUser.UserName;
-
+   // if (currentUser == null)
+   // {
+    userParams.CurrentUsername = currentUser.UserName;
+   // }
+   // else
+   // {
+   //  return BadRequest("user not found");
+   // }
    if (string.IsNullOrEmpty(userParams.Gender))
    {
     userParams.Gender = currentUser.Gender == "male" ? "Female" : "male";

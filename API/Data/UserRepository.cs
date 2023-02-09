@@ -24,6 +24,17 @@ namespace API.Data
    return await _context.Users.Where(x => x.UserName == username).ProjectTo<MemberDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync();
   }
 
+  // public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
+  // {
+  //  var query = _context.Users
+  //  .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
+  //  .AsNoTracking();
+
+  
+  //  return await PagedList<MemberDto>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
+  // }
+
+
   public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
   {
    var query = _context.Users.AsQueryable();
@@ -35,6 +46,11 @@ namespace API.Data
    var maxDOb = DateOnly.FromDateTime(DateTime.Today.AddYears(-userParams.MinAge));
    
    query = query.Where(u => u.DateOfBirth >= minDOb && u.DateOfBirth <= maxDOb);
+   query = userParams.OrderBy switch
+   {
+    "Created" => query.OrderByDescending(u => u.Created),
+    _ => query.OrderByDescending(u => u.LastSeen)
+   };
 
 
    return await PagedList<MemberDto>.CreateAsync(query.AsNoTracking().ProjectTo<MemberDto>(_mapper.ConfigurationProvider), userParams.PageNumber, userParams.PageSize);
@@ -64,5 +80,7 @@ namespace API.Data
   {
    _context.Entry(user).State = EntityState.Modified;
   }
+
+ 
  }
 }

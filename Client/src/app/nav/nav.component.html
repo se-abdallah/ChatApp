@@ -28,7 +28,7 @@
     <div class="dropdown mynavbar" *ngIf="(accountService.currentUser$ | async) as User" dropdown>
       <img src="{{User.photoUrl ||'./assets/images/user.png'}}">
       <a class="dropdown-toggle text-light mynavbar mt-2.5 ms-3" dropdownToggle>
-        <strong>Welcome {{User.username|titlecase}}</strong>
+        <strong>Welcome {{User.knowAs |titlecase}}</strong>
       </a>
       <div class="dropdown-menu mt-3" *bsDropdownMenu>
         <a class="dropdown-item mynavbar" routerLink="/member/edit">Edit Profile</a>

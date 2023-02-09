@@ -1,18 +1,51 @@
+<div class="text-center mt-3">
+  <h2>Users Matches - {{pagination?.totalItems}}</h2>
+</div>
+<div class="container mt-3" *ngIf="userParams">
+  <form #form="ngForm" class="d-flex mb-3" (ngSubmit)="loadMembers()" autocomplete="off">
+    <div class="d-flex mx-2">
+      <label class="col-form-label">Age From:</label>
+      <input type="number" class="form-control ms-1" style="width: 70px" name="minAge" [(ngModel)]="userParams.minAge">
+    </div>
+    <div class="d-flex mx-2">
+      <label class="col-form-label">Age To:</label>
+      <input type="number" class="form-control ms-1" style="width: 70px" name="maxAge" [(ngModel)]="userParams.maxAge">
+    </div>
+    <div class="d-flex px-2">
+      <label class="col-form-label me-2">Show:</label>
+      <select name="gender" class="form-control ms-1" style="width: 130px" [(ngModel)]="userParams.gender">
+        <option *ngFor="let gender of genderList" [value]="gender.value">{{gender.display}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-outline ms-1">Apply Filter</button>
+    <button (click)="restFilters()" type="submit" class="btn btn-outline ms-1">Rest Filter</button>
+    
+    <div class="col">
+      <div class="float-end">
+      <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle name="orderBy" [(ngModel)]="userParams.orderBy" (click)="loadMembers()" value="LastSeen">Last Seen</mat-button-toggle>
+        <mat-button-toggle name="orderBy" [(ngModel)]="userParams.orderBy" (click)="loadMembers()" value="created">Recently</mat-button-toggle>
+      </mat-button-toggle-group>
+      </div>
+      </div>
+  </form>
+  </div>
+
 <div class="row">
- <!-- <div class="col-2" *ngFor="let member of members$ | async"> -->
- <div class="col-2" *ngFor="let member of members">
-  <app-member-card [member]="member"></app-member-card>
- </div>
+  <!-- <div class="col-2" *ngFor="let member of members$ | async"> -->
+  <div class="col-2" *ngFor="let member of members">
+    <app-member-card [member]="member"></app-member-card>
+  </div>
 </div>
 
 <nav pagination>
- <div class="pagination" *ngIf="pagination">
-  <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
-   [maxSize]="10" [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
-   nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+  <div class="pagination" *ngIf="pagination">
+    <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+      [maxSize]="10" [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+      nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
 
-  </pagination>
- </div>
+    </pagination>
+  </div>
 </nav>
 
 

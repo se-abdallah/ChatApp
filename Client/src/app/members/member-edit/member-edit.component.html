@@ -21,7 +21,7 @@
      <p>{{member.gender}}</p>
     </div>
     <div> <strong>Last Seen:</strong>
-     <p>{{member.lastSeen}}</p>
+     <p>{{member.lastSeen + 'Z' | timeago}}</p>
     </div>
     <div> <strong>Member since:</strong>
      <p>{{member.created | date: 'dd MMM yyyy'}}</p>

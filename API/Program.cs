@@ -19,6 +19,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.AddScoped<LogUserActivity>();
+
 builder.Services.AddDbContextPool<DataContext>(options =>
  {
   options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -51,12 +53,12 @@ var app = builder.Build();
 
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
- app.UseDeveloperExceptionPage();
- //  app.UseSwagger();
- //  app.UseSwaggerUI();
-}
+// if (app.Environment.IsDevelopment())
+// {
+//  app.UseDeveloperExceptionPage();
+//  app.UseSwagger();
+//  app.UseSwaggerUI();
+// }
 
 app.UseMiddleware<ExceptionMiddleware>();
 

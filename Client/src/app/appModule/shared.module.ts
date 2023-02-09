@@ -5,6 +5,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TimeagoModule } from 'ngx-timeago';
 
 
 
@@ -20,6 +21,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
@@ -40,6 +42,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FileUploadModule,
     NgOptimizedImage,
     PaginationModule.forRoot(),
+    TimeagoModule.forRoot(),
     
 
     // ?Angular Material
@@ -54,6 +57,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatTableModule,
     MatToolbarModule,
     MatCheckboxModule,
+    MatButtonToggleModule,
     // MatNativeDateModule,
     // MatMomentDateModule,
 
@@ -68,6 +72,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FileUploadModule,
     NgOptimizedImage,
     PaginationModule,
+    TimeagoModule,
 
 
     // ?Angular Material
@@ -82,6 +87,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatTableModule,
     MatToolbarModule,
     MatCheckboxModule,
+    MatButtonToggleModule,
     // MatNativeDateModule,MatMomentDateModule
 
 
