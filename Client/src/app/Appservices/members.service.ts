@@ -20,7 +20,7 @@ export class MembersService {
   user!: User;
   // paginatedResult: PaginationResult<Member[]> = new PaginationResult<Member[]>;
 
-  constructor(private http: HttpClient, private accountService: AccountService) { 
+  constructor(private http: HttpClient, private accountService: AccountService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe({
       next: user => {
         if (user) {
@@ -30,17 +30,18 @@ export class MembersService {
       }
     })
   }
-  resetUserParams(){
-    if(this.user){
+  resetUserParams() {
+    if (this.user) {
       this.userParams = new UserParams(this.user);
       return this.userParams;
     }
+    return;
   }
 
-  getUserParams(){
+  getUserParams() {
     return this.userParams;
   }
-  setUserParams(params: UserParams){
+  setUserParams(params: UserParams) {
     this.userParams = params;
   }
   getMembers(userParams: UserParams) {
