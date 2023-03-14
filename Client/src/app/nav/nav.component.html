@@ -4,13 +4,14 @@
       <a class="navbar-brand" href="#">Chating App</a>
     </div>
     <div class="nav-item">
-      <a class="navbar-link mylink" routerLink="/" routerLinkActive="active">Home</a>
+      <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
     </div>
 
     <ul class="navbar-nav me-auto mb-2 mb-md-0">
       <ng-container *ngIf="accountService.currentUser$ | async">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/members" routerLinkActive="active">Users</a>
+          <a class="nav-link" routerLink="/members" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact : true}">Users</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
@@ -18,6 +19,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
         </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+        </li> -->
       </ng-container>
       <li class="nav-item">
         <a class="nav-link" routerLink="/errors" routerLinkActive="active">Errors</a>
@@ -25,14 +29,21 @@
     </ul>
 
 
-    <div class="dropdown mynavbar" *ngIf="(accountService.currentUser$ | async) as User" dropdown>
+    <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as User" dropdown>
       <img src="{{User.photoUrl ||'./assets/images/user.png'}}">
-      <a class="dropdown-toggle text-light mynavbar mt-2.5 ms-3" dropdownToggle>
+      <a class="dropdown-toggle text-light mt-2.5 ms-3" dropdownToggle>
         <strong>Welcome {{User.knowAs |titlecase}}</strong>
       </a>
       <div class="dropdown-menu mt-3" *bsDropdownMenu>
-        <a class="dropdown-item mynavbar" routerLink="/member/edit">Edit Profile</a>
+        <a class="dropdown-item" routerLink="/member/edit">Edit Profile</a>
         <div class="dropdown-divider"></div>
+       <!-- !new -->
+          <a class="dropdown-item" routerLink="/admin" routerLinkActive="active">Admin</a>
+        
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+        </li> -->
+        <!-- !end new -->
         <a class="dropdown-item" (click)="logout()">Logout</a>
       </div>
     </div>

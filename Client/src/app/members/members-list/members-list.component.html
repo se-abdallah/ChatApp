@@ -20,11 +20,19 @@
     <button type="submit" class="btn btn-outline ms-1">Apply Filter</button>
     <button (click)="restFilters()" type="submit" class="btn btn-outline ms-1">Rest Filter</button>
     
+    <!-- <div class="col">
+      <div class="btn-group float-end">
+        <button type="button" class="btn btn-primary" [ngModelOptions]="{standalone: true}" ngDefaultControl [(ngModel)]="userParams.orderBy" btnRadio="lastActive"
+          (click)="loadMembers()">Last Active</button>
+        <button type="button" class="btn btn-primary" [ngModelOptions]="{standalone: true}" ngDefaultControl [(ngModel)]="userParams.orderBy" btnRadio="created"
+          (click)="loadMembers()">Newest members</button>
+      </div>
+    </div> -->
     <div class="col">
       <div class="float-end">
-      <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle name="orderBy" [(ngModel)]="userParams.orderBy" (click)="loadMembers()" value="LastSeen">Last Seen</mat-button-toggle>
-        <mat-button-toggle name="orderBy" [(ngModel)]="userParams.orderBy" (click)="loadMembers()" value="created">Recently</mat-button-toggle>
+      <mat-button-toggle-group appearance="legacy" name="orderBy">
+        <mat-button-toggle [(ngModel)]="userParams.orderBy" ngDefaultControl [ngModelOptions]="{standalone: true}" (click)="loadMembers()" value="LastSeen">Last Seen</mat-button-toggle>
+        <mat-button-toggle [(ngModel)]="userParams.orderBy" ngDefaultControl [ngModelOptions]="{standalone: true}" (click)="loadMembers()" value="created">Recently</mat-button-toggle>
       </mat-button-toggle-group>
       </div>
       </div>

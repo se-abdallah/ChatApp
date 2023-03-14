@@ -1,15 +1,11 @@
-.mynavbar{
-text-decoration: none;
-/* display:flex; */
-/* justify-content: left; */
-}
+
 .navbar {
 border-bottom: solid black;
 border-top: solid black;
 }
 .dropdown-toggle, .dropdown-item{
  cursor:pointer;
- 
+ text-decoration: none;
 }
 
 .eyeicon {
@@ -27,10 +23,6 @@ border-top: solid black;
 
 .toastr{
  opacity:1 
-}
-.mylink{
-color:white;
-text-decoration: none;
 }
 
 .container {

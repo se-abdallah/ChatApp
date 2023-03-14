@@ -1,11 +1,10 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace API.Entity
 {
- public class AppUser
+ public class AppUser : IdentityUser<int>
  {
-  public int Id { get; set; }
-  public string UserName { get; set; }
-  public byte[] PasswordHash { get; set; }
-  public byte[] PasswordSalt { get; set; }
+  
   public DateOnly DateOfBirth { get; set; }
   public string KnownAs { get; set; }
   public DateTime Created { get; set; } = DateTime.UtcNow;
@@ -20,6 +19,10 @@ namespace API.Entity
   public List<Photo> Photos { get; set; } = new();
   public List<UserLike> LikedByUsers { get; set; }
   public List<UserLike> LikedUsers { get; set; }
+
+  public List<Message> MessageSent { get; set; }
+  public List<Message> MessageReceived { get; set; }
+  public ICollection<AppUserRole> UserRoles { get; set; }
 
 
 

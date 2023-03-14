@@ -1,0 +1,22 @@
+nav {
+ /* display: inline-block; */
+ justify-content: center;
+ border-top: 1px solid #042a63;
+ margin-top: 1em;
+ padding-top: .5em;
+ 
+position: absolute;
+bottom: 0;
+align-items:center;
+text-align: center;
+left:0; 
+right:0;
+object-position: center;
+}
+
+.pagination {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: inline-block;
+}

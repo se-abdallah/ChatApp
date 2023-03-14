@@ -2,16 +2,19 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TimeagoModule } from 'ngx-timeago';
 
 
 
 // ? Angular Material
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,8 +23,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
@@ -43,7 +44,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     NgOptimizedImage,
     PaginationModule.forRoot(),
     TimeagoModule.forRoot(),
-    
+    ModalModule.forRoot(),
+
 
     // ?Angular Material
     MatButtonModule,
@@ -73,6 +75,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     NgOptimizedImage,
     PaginationModule,
     TimeagoModule,
+    ModalModule,
 
 
     // ?Angular Material

@@ -1,11 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using API.Interfaces;
 using API.DTOs;
-using AutoMapper;
-using API.Extensions;
 using API.Entity;
+using API.Extensions;
 using API.Helpers;
+using API.Interfaces;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
@@ -37,7 +37,7 @@ namespace API.Controllers
   // {
   //  var users = await _userRepository.GetMembersAsync(userParams);
   //  Response.AddPaginationHeader(new PaginationHeader(users.CurrentPage , users.PageSize, users.TotalCount, users.TotalPages));
-   
+
   //  return Ok(users);
   // }
   // !GetUsers
@@ -49,7 +49,7 @@ namespace API.Controllers
    var currentUser = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
    // if (currentUser == null)
    // {
-    userParams.CurrentUsername = currentUser.UserName;
+   userParams.CurrentUsername = currentUser.UserName;
    // }
    // else
    // {

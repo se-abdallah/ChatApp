@@ -31,6 +31,12 @@ import { RegisterComponent } from './register/register.component';
 import { TextInputComponent } from './appForm/text-input/text-input.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DatePickerComponent } from './appForm/date-picker/date-picker.component';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
+import { AdminPanelComponent } from './appAdmin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './appDirective/has-role.directive';
+import { UserManagementComponent } from './appAdmin/user-management/user-management.component';
+import { PhotoManagementComponent } from './appAdmin/photo-management/photo-management.component';
+import { RolesModalComponent } from './appModals/roles-modal/roles-modal.component';
  
 //import { ToastrModule } from 'ngx-toastr/public_api';
 
@@ -54,6 +60,12 @@ import { DatePickerComponent } from './appForm/date-picker/date-picker.component
     PhotoEditorComponent,
     TextInputComponent,
     DatePickerComponent,
+    MemberMessagesComponent,
+    AdminPanelComponent,
+    HasRoleDirective,
+    UserManagementComponent,
+    PhotoManagementComponent,
+    RolesModalComponent,
 
   ],
   imports: [

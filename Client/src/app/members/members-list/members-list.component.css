@@ -36,9 +36,9 @@ margin-top: 0;
 
 
 nav {
- display: flex;
+ /* display: inline-block; */
  justify-content: center;
- border-top: 1px solid #eee;
+ border-top: 1px solid #042a63;
  margin-top: 1em;
  padding-top: .5em;
  
@@ -55,7 +55,7 @@ object-position: center;
  list-style: none;
  margin: 0;
  padding: 0;
- display: flex;
+ display: inline-block;
 }
 
 /* .pagination a[aria-current="page"] {

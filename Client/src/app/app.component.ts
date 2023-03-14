@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit {
 
-  title = 'The Chat App';
+  title = 'Chat Application';
   users: any;
 
 

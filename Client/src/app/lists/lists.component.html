@@ -1,1 +1,28 @@
-<p>lists works!</p>
+<div class="text-center mt-3">
+  <h2>{{predicate === 'liked' ? 'Members I Like' : 'Member who Like Me'}}</h2>
+</div>
+
+<div class="container mt-3">
+  <div class="d-flex">
+    <div class="btn-group" name="predicate">
+      <!-- <div class="btn-group"> -->
+      <button class="btn btn-primary" btnRadio="liked" [ngModelOptions]="{standalone: true}"  ngDefaultControl [(ngModel)]="predicate" (click)="loadLikes()">Member I Like</button>
+      <button class="btn btn-primary" btnRadio="likedBy" [ngModelOptions]="{standalone: true}" ngDefaultControl  [(ngModel)]="predicate" (click)="loadLikes()">Member Who Like Me</button>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-2" *ngFor="let member of members">
+      <app-member-card [member]="member"></app-member-card>
+    </div>
+  </div>
+</div>
+
+<nav pagination>
+  <div class="pagination" *ngIf="pagination">
+    <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+      [maxSize]="10" [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+      nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+    </pagination>
+  </div>
+</nav>

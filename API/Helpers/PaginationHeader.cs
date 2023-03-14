@@ -2,6 +2,15 @@ namespace API.Helpers
 {
  public class PaginationHeader
  {
+  private int pageSize;
+
+  public PaginationHeader(int currentPage, int pageSize, int totalPages)
+  {
+   CurrentPage = currentPage;
+   this.pageSize = pageSize;
+   TotalPages = totalPages;
+  }
+
   public PaginationHeader(int currentPage, int itemsPerPage, int totalItems, int totalPages)
   {
    CurrentPage = currentPage;

@@ -4,13 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Entity;
+using API.Helpers;
 
 namespace API.Interfaces
 {
     public interface ILikeRepository
     {
         Task<UserLike> GetUserLike(int sourceUserId , int targetUserId);
-        Task<UserLike> GetUserWithLikes(int userId);
-        Task<IEnumerable<LikeDto>>  GetUserLikes(string predicate, int userId);
-    }
+        Task<AppUser> GetUserWithLikes(int userId);
+        Task<PagedList<LikeDto>>  GetUserLikes(LikesParams likesParams);
+  
+ }
 }
