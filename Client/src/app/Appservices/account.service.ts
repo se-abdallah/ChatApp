@@ -61,7 +61,8 @@ export class AccountService {
   }
 
   getDecodedToken(token: string) {
-    var userToken = (atob(token.split('.')[1]))
-    return JSON.parse(userToken);
+    return JSON.parse(atob(token.split('.')[1]))
+    // var userToken = (atob(token.split('.')[1]))
+    // return JSON.parse(userToken);
   }
 }

@@ -12,12 +12,12 @@ namespace API.Helpers
    CreateMap<AppUser, MemberDto>()
    .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url))
    .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalcuateAge()));
-   
+
    // ! new
    // CreateMap<AppUser, MemberDto>().AfterMap<PagedList<MemberDto>>();
-//    CreateMap<UserParams, AppUser>()
-//         .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender))
-//         .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.CurrentUsername));
+   //    CreateMap<UserParams, AppUser>()
+   //         .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender))
+   //         .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.CurrentUsername));
    CreateMap<Photo, PhotoDto>();
    CreateMap<MemberUpdateDto, AppUser>();
    CreateMap<RegisterDto, AppUser>();
@@ -25,6 +25,9 @@ namespace API.Helpers
    CreateMap<Message, MessageDto>()
    .ForMember(d => d.SenderPhotoUrl, o => o.MapFrom(s => s.Sender.Photos.FirstOrDefault(x => x.IsMain).Url))
    .ForMember(d => d.RecipientPhotoUrl, o => o.MapFrom(s => s.Recipient.Photos.FirstOrDefault(x => x.IsMain).Url));
+
+   CreateMap<DateTime, DateTime>().ConvertUsing(d => DateTime.SpecifyKind(d, DateTimeKind.Utc));
+   CreateMap<DateTime?, DateTime?>().ConvertUsing(d => d.HasValue ? DateTime.SpecifyKind(d.Value, DateTimeKind.Utc) : null);
   }
  }
 }

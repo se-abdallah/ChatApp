@@ -21,14 +21,15 @@
      <p>{{member.gender}}</p>
     </div>
     <div> <strong>Last Seen:</strong>
-     <p>{{member.lastSeen + 'Z' | timeago}}</p>
+     <p>{{member.lastSeen | timeago}}</p>
     </div>
     <div> <strong>Member since:</strong>
      <p>{{member.created | date: 'dd MMM yyyy'}}</p>
     </div>
    </div>
    <div class="card-footer">
-    <button type="submit" [disabled]="!editForm.dirty" form="editForm" class="btn btn-success col-12">Save changes</button>
+    <button type="submit" [disabled]="!editForm.dirty" form="editForm" class="btn btn-success col-12">Save
+     changes</button>
    </div>
   </div>
  </div>

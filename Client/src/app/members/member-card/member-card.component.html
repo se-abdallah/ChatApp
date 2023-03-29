@@ -25,11 +25,13 @@
         <!-- <p class="mytxt2 child"><mat-icon class="myicon">room</mat-icon>{{member.city|titlecase}}</p> -->
         <!-- <p class="mytxt1 child"><mat-icon class="myicon">person</mat-icon>{{member.age}}</p> -->
         <!-- </div> -->
-        <span [class.is-online]="(presenceService.onlineUsers$ | async)?.includes(member.userName |titlecase)"
-          class="mytxt1 child">
+        <span [class.is-online]="(presenceService.onlineUsers$ | async)?.includes(member.userName |titlecase)">
+          <span class="is-online dot">●</span>
+        </span>
+        <div class="mytxt1 child">
           <mat-icon class="myicon me-2">person</mat-icon>
           {{member.userName}}
-        </span>
+        </div>
         <p class="mytxt2 child"><mat-icon class="myicon">room</mat-icon>{{member.city|titlecase}}</p>
       </div>
     </div>

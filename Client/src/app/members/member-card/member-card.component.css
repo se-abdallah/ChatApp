@@ -104,3 +104,19 @@
   margin-top: 2rem;
   /* padding-top:2rem; */
 }
+
+/* ! online dot  */
+
+.logged-in {
+  color: green;
+}
+
+.logged-out {
+  color: red;
+}
+
+.dot{
+text-align: center;
+position: relative;
+/* object-position: center; */
+}

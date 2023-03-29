@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
+import { take } from 'rxjs';
 import { Member } from 'src/app/appModel/member';
 import { Message } from 'src/app/appModel/message';
-import { MembersService } from 'src/app/appServices/members.service';
+import { User } from 'src/app/appModel/user';
+import { AccountService } from 'src/app/appServices/account.service';
 import { MessageService } from 'src/app/appServices/message.service';
 import { PresenceService } from 'src/app/appServices/presence.service';
 
@@ -13,15 +15,23 @@ import { PresenceService } from 'src/app/appServices/presence.service';
   templateUrl: './members-detail.component.html',
   styleUrls: ['./members-detail.component.css']
 })
-export class MembersDetailComponent implements OnInit {
-  @ViewChild('memberTabs' , {static: true}) memberTabs!: TabsetComponent;
+export class MembersDetailComponent implements OnInit, OnDestroy {
+  @ViewChild('memberTabs', { static: true }) memberTabs!: TabsetComponent;
   member!: Member;
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
   activeTab!: TabDirective;
   messages!: Message[];
+  user?: User;
 
-  constructor(private memberService: MembersService, private route: ActivatedRoute, private messageService: MessageService , public presenceService : PresenceService) { }
+  constructor(private accountService: AccountService, private route: ActivatedRoute, private messageService: MessageService, public presenceService: PresenceService, private router: Router) {
+    this.accountService.currentUser$.pipe(take(1)).subscribe({
+      next: user => {
+        if (user) this.user = user;
+      }
+    });
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
     // this.loadMember(); //!there are no needs for using this , beacuse we are going to get the member from the root instead 
@@ -48,6 +58,10 @@ export class MembersDetailComponent implements OnInit {
 
     this.galleryImages = this.getImges();
 
+  }
+
+  ngOnDestroy(): void {
+    this.messageService.stopHubConnection();
   }
 
   // loadMember() {
@@ -83,8 +97,12 @@ export class MembersDetailComponent implements OnInit {
 
   onTabActivated(data: TabDirective) {
     this.activeTab = data;
-    if (this.activeTab.heading === 'Messages') {
-      this.loadMessages();
+    if (this.activeTab.heading === 'Messages' && this.user) {
+      // this.loadMessages(this.user, this.member.userName);
+      this.messageService.createHubConnection(this.user, this.member.userName);
+    }
+    else {
+      this.messageService.stopHubConnection();
     }
   }
 
