@@ -1,0 +1,10 @@
+<div class="container">
+ <h1 class="header" mat-dialog-title>{{title}}</h1>
+ <mat-divider></mat-divider>
+ <div class="content" mat-dialog-content>{{message}}</div>
+ <mat-divider></mat-divider>
+ <div class="footer" mat-dialog-actions>
+  <button class="btn btn:hover" mat-button (click)="confirm()">{{btnOkText}}</button>
+  <button class="btn btn1 btn1:hover" mat-button mat-dialog-close (click)="decline()">{{btnCancelText}}</button>
+ </div>
+</div>

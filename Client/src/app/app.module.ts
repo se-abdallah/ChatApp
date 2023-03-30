@@ -37,6 +37,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { MessagesComponent } from './messages/messages.component';
 import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component';
+import { ConfirmDialogComponent } from './appModals/confirm-dialog/confirm-dialog.component';
 
 //import { ToastrModule } from 'ngx-toastr/public_api';
 
@@ -66,6 +67,7 @@ import { RegisterComponent } from './register/register.component';
     UserManagementComponent,
     PhotoManagementComponent,
     RolesModalComponent,
+    ConfirmDialogComponent,
 
   ],
   imports: [

@@ -23,6 +23,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
@@ -60,6 +62,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule,
     MatCheckboxModule,
     MatButtonToggleModule,
+    MatDialogModule,
+    MatDividerModule,
     // MatNativeDateModule,
     // MatMomentDateModule,
 
@@ -91,6 +95,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule,
     MatCheckboxModule,
     MatButtonToggleModule,
+    MatDialogModule,
+    MatDividerModule,
     // MatNativeDateModule,MatMomentDateModule
 
 

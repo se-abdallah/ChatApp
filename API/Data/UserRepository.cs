@@ -30,7 +30,7 @@ namespace API.Data
   //  .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
   //  .AsNoTracking();
 
-  
+
   //  return await PagedList<MemberDto>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
   // }
 
@@ -44,7 +44,7 @@ namespace API.Data
 
    var minDOb = DateOnly.FromDateTime(DateTime.Today.AddYears(-userParams.MaxAge - 1));
    var maxDOb = DateOnly.FromDateTime(DateTime.Today.AddYears(-userParams.MinAge));
-   
+
    query = query.Where(u => u.DateOfBirth >= minDOb && u.DateOfBirth <= maxDOb);
    query = userParams.OrderBy switch
    {
@@ -66,14 +66,14 @@ namespace API.Data
    return await _context.Users.Include(p => p.Photos).SingleOrDefaultAsync(x => x.UserName == username);
   }
 
+  public async Task<string> GetUserGender(string username)
+  {
+   return await _context.Users.Where(x => x.UserName == username).Select(x => x.Gender).FirstOrDefaultAsync();
+  }
+
   public async Task<IEnumerable<AppUser>> GetUsersAsync()
   {
    return await _context.Users.Include(p => p.Photos).ToListAsync();
-  }
-
-  public async Task<bool> SaveAllAsync()
-  {
-   return await _context.SaveChangesAsync() > 0;
   }
 
   public void Update(AppUser user)
@@ -81,6 +81,6 @@ namespace API.Data
    _context.Entry(user).State = EntityState.Modified;
   }
 
- 
+
  }
 }

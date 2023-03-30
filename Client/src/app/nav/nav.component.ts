@@ -12,7 +12,7 @@ import { MembersService } from '../appServices/members.service';
 })
 export class NavComponent implements OnInit {
   @Input()
-  member!: Member ;
+  member!: Member;
   model: any = {};
   visible: boolean = true;
   changetype: boolean = true;
@@ -22,7 +22,7 @@ export class NavComponent implements OnInit {
 
   constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) {
 
-    
+
 
   }
 
@@ -31,11 +31,14 @@ export class NavComponent implements OnInit {
   }
   login() {
     this.accountService.login(this.model).subscribe({
-      next: response => this.router.navigateByUrl('/members'),
+      next: response => {
+        this.router.navigateByUrl('/members');
+        this.model = {};
+      },
       // error: error => {
       //   console.log(error),
-        // this.toastr.error(error.error) this error are being handel by intercepter
-      });
+      // this.toastr.error(error.error) this error are being handel by intercepter
+    });
 
 
 

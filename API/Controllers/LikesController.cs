@@ -9,25 +9,23 @@ namespace API.Controllers
 {
  public class LikesController : BaseApiController
  {
-  private readonly IUserRepository _userRepository;
-  private readonly ILikeRepository _likeRepository;
-
-  public LikesController(IUserRepository userRepository, ILikeRepository likeRepository)
+  private readonly IUnitOfWork _uow;
+  public LikesController(IUnitOfWork uow)
   {
-   _likeRepository = likeRepository;
-   _userRepository = userRepository;
+   _uow = uow;
+
   }
   [HttpPost("{username}")]
   public async Task<ActionResult> AddLike(string username)
   {
    var sourceUserId = User.GetUserId();
-   var likedUser = await _userRepository.GetUserByUsernameAsync(username);
-   var sourceUser = await _likeRepository.GetUserWithLikes(sourceUserId);
+   var likedUser = await _uow.UserRepository.GetUserByUsernameAsync(username);
+   var sourceUser = await _uow.LikeRepository.GetUserWithLikes(sourceUserId);
 
    if (likedUser == null) return NotFound();
    if (sourceUser.UserName == username) return BadRequest("Nice Try! You Cannot like yourself");
 
-   var userlike = await _likeRepository.GetUserLike(sourceUserId, likedUser.Id);
+   var userlike = await _uow.LikeRepository.GetUserLike(sourceUserId, likedUser.Id);
    if (userlike != null) return BadRequest("Already Liked");
 
    userlike = new UserLike
@@ -36,7 +34,7 @@ namespace API.Controllers
     TargetUserId = likedUser.Id
    };
    sourceUser.LikedUsers.Add(userlike);
-   if (await _userRepository.SaveAllAsync()) return Ok();
+   if (await _uow.Complete()) return Ok();
    return BadRequest("Faild to like user");
 
 
@@ -47,7 +45,7 @@ namespace API.Controllers
   public async Task<ActionResult<PagedList<LikeDto>>> GetUserLikes([FromQuery] LikesParams likesParams)
   {
    likesParams.UserId = User.GetUserId();
-   var users = await _likeRepository.GetUserLikes(likesParams);
+   var users = await _uow.LikeRepository.GetUserLikes(likesParams);
    Response.AddPaginationHeader(new PaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages));
    return Ok(users);
   }

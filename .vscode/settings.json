@@ -1,5 +1,10 @@
 {
  "prettier.useTabs": false,
  "angular.log": "verbose",
- "typescript.tsdk": "node_modules\\typescript\\lib"
+ "typescript.tsdk": "node_modules\\typescript\\lib",
+ // * highlight active tab 
+ "workbench.colorCustomizations": {
+  "tab.activeBorder": "#ff0000",
+  "tab.unfocusedActiveBorder": "#000000"
+}
 }
