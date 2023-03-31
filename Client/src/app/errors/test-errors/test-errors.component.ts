@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./test-errors.component.css']
 })
 export class TestErrorsComponent implements OnInit {
-  baseUrl = 'https://localhost:7078/api/';
+  baseUrl = environment.apiUrl;
   validationErrors: string[] = [];
 
   constructor(private http: HttpClient) {
@@ -35,7 +35,7 @@ export class TestErrorsComponent implements OnInit {
   get500Error() {
     this.http.get(this.baseUrl + 'buggy/server-error').subscribe({
       next: response => console.log(response),
-      error: error => console.log(error,"Server Error")
+      error: error => console.log(error, "Server Error")
     });
   }
 

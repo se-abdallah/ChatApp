@@ -19,5 +19,9 @@ namespace API.Interfaces
   Task<MemberDto> GetMemberAsync(string username);
   // get the user gender
   Task<string> GetUserGender(string username);
+  // ! control photo approval
+  Task<MemberDto> GetMemberAsync(string username, bool isCurrentUser);
+  Task<AppUser> GetUserByPhotoId(int photoId);
+
  }
 }

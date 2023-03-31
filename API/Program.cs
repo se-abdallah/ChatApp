@@ -30,7 +30,7 @@ builder.Services.AddSingleton<PresenceTracker>();
 
 builder.Services.AddDbContextPool<DataContext>(options =>
  {
-  options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+  options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
  });
 // builder.Services.AddControllers().AddJsonOptions(options =>
 //  {
@@ -106,12 +106,15 @@ app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod()
 .AllowCredentials().WithOrigins("https://localhost:4200"));
 
 app.UseAuthentication();
-
 app.UseAuthorization();
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.MapControllers();
 app.MapHub<PresenceHub>("hubs/presence");
 app.MapHub<MessageHub>("hubs/message");
+app.MapFallbackToController("Index", "FallBack");
 
 // AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 using var scope = app.Services.CreateScope();
