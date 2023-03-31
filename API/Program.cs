@@ -125,12 +125,7 @@ try
  var userManager = services.GetRequiredService<UserManager<AppUser>>();
  var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
  await context.Database.MigrateAsync();
- //!remove connection from the database when the application is started 
- //! used with a little number of users 
- // context.Connections.RemoveRange(context.Connections);
- // ? an other way to do it without casuing promlem but tranucate does not work with sqlite
- // await context.Database.ExecuteSqlRawAsync("TRUNCATE TABLE [Connections]");
- await context.Database.ExecuteSqlRawAsync("DELETE FROM [Connections]");
+ await Seed.ClearConnections(context);
  await Seed.SeedUsers(userManager, roleManager);
 }
 catch (Exception ex)
