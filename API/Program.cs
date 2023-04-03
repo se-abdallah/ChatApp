@@ -83,8 +83,9 @@ builder.Services.AddAuthorization(opt =>
 
 builder.Services.AddCors();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+// builder.Services.AddEndpointsApiExplorer();
+// builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -133,6 +134,6 @@ catch (Exception ex)
  var logger = services.GetService<ILogger<Program>>();
  logger.LogError(ex, "An error occurred during migration");
 }
-await app.RunAsync();
+// await app.RunAsync();
 
 app.Run();
